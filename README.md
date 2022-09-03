@@ -2,6 +2,10 @@
 
 Preditcs player's playing position - Minimalistic app build on trained model with k-Nearest Neighbors algorithm. 
 
+For example, clustering based on centroids position, figure below self-explains the idea behind, (*however, not from the current example tried here*)
+
+![demo](https://github.com/avrabyt/technble-demo/blob/main/Resources/demo.png)
+
 Try the app [here](https://avrabyt-technble-demo-demo-4t709i.streamlitapp.com/) 
 
 ### Resources
