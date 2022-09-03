@@ -1,4 +1,4 @@
-## Demo app 
+## Live Master Class - Demo app 
 
 Preditcs player's playing position - Minimalistic app build on trained model with k-Nearest Neighbors algorithm. 
 
