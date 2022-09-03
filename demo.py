@@ -8,10 +8,20 @@ import streamlit as st
 
 @st.experimental_memo(suppress_st_warning=True)
 def load_data():
+    '''
+    Load data from the Data folder 
+    '''
     df = pd.read_csv('Data/players_20.csv')
     return df
 
 def data_manu(df):
+    '''
+    Data manipulation 
+    -------------------
+    Input   :   df-> DataFrame
+    Return  :   df-> The cleaned data as DataFrame
+                sem_df-> The semi cleaned Data for plotting purpose
+    '''
     # First remove commas from the column 
     df['player_positions']=df['player_positions'].str.replace(',','')
     df['player_positions'] = df['player_positions'].astype(str).str.split().str[0]
@@ -32,6 +42,9 @@ def data_manu(df):
     return df, sem_df
 
 def run_model(df):
+    '''
+    Running the model
+    '''
     df = df[['position', 'shooting','passing','dribbling','defending']]
     X  = df.drop('position', axis=1).values
     y  = df['position'].values
@@ -40,9 +53,12 @@ def run_model(df):
     knn.fit(X_train, y_train)
     return knn, X_test, y_test
 
+## ----- App ----- ##
 st.set_page_config(page_title="Technble-Demo-App", layout="wide")
 st.title("Preditcs player's playing position")
+# Loading Data
 data = st.sidebar.checkbox(label = 'Load Data', value = False)  
+
 if data :
     df = load_data()
     manu_df, sem_df = data_manu(df)
